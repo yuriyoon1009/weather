@@ -1,6 +1,7 @@
-const appKey = process.env.APP_KEY
+
 import { errorHandler } from '../plugins/error.js'
 import { utils } from '../plugins/utils'
+const appKey = process.env.APP_KEY
 
 export const state = () => ({
   cityName: '',
@@ -9,7 +10,7 @@ export const state = () => ({
 
 export const actions = {
   // 검색
-  async actionSearchCity ({ state }) {
+  async actionSearchCity ({ state, commit }) {
     try {
       const dataset = {
         cityName: utils.changeUpperCase(state.cityName)
@@ -17,9 +18,23 @@ export const actions = {
 
       const { data: { id }} = await this.$axios.get(`/weather?q=${dataset.cityName}&appid=${appKey}`)
 
+      this.$router.push({
+        path: `/detail/${id}`,
+        params: { id }
+      })
+
       return errorHandler({ id })
     } catch (error) {
-      return errorHandler(error)
+      const errorData = errorHandler(error)
+
+      commit('modal/openModal', {
+        componentKey: 'CommonModal',
+        props: {
+          guide: errorData.errors.message
+        }
+      }, { root: true })
+
+      return errorData
     }
   },
   // 상세
@@ -60,7 +75,7 @@ export const mutations = {
   setDetailWeatherInformation: (state, payload) => {
     /**
      * 날씨 정보
-     * @payload {object}
+     * @params payload {object}
     */
     state.detailWeatherInformation = payload
   },

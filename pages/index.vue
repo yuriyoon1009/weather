@@ -44,20 +44,8 @@ export default {
     }),
     async search (cityName) {
       this.setCityName(cityName)
-
-      const { data, status, errors } = await this.actionSearchCity()
-
-      if (status) {
-       this.goToDetail(data.id)
-      } else {
-        alert(errors.message)
-      }
-    },
-    goToDetail (id) {
-      this.$router.push({
-        path: `/detail/${id}`,
-        params: { id }
-      })
+      // 검색 api call
+      await this.actionSearchCity()
     }
   }
 }

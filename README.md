@@ -22,3 +22,5 @@ $ yarn generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ### 추후 eslint 세팅
+
+## 파일 구조

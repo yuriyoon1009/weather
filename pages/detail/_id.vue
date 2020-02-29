@@ -3,8 +3,6 @@
     <pre>{{ info }}</pre>
     <div>
       <!--components 5개-->
-      <!--modal-->
-      <!--actionSearchCity try router, catch modal-->
     </div>
   </div>
 </template>

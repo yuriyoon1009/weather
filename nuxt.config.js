@@ -31,6 +31,10 @@ module.exports = {
     {
       src: '~assets/reset.scss',
       lang: 'scss'
+    },
+    {
+      src: '~assets/global.scss',
+      lang: 'scss'
     }
   ],
   /*
