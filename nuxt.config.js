@@ -13,7 +13,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'cityWeather', name: '날씨', content: '펭수의 세계정복을 위해 !!! 세계의 날씨 데이터를 알아야한다!' }
+      { hid: 'cityWeather', name: '날씨', content: '펭수의 세계정복을 위해 !!! 세계의 날씨 데이터를 알아야한다!!' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
