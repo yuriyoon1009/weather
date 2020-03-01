@@ -8,8 +8,8 @@
         ></common-search>
       </div>
     </div>
-    <client-only>
-      <div class="wrap-lists">
+    <div class="wrap-lists">
+      <client-only>
         <template v-if="cityLists.length">
           <template v-for="({ name, country }, key) in computedCityLists">
             <div class="wrap-box-list" :key="key">
@@ -21,9 +21,14 @@
             </div>
           </template>
         </template>
+      </client-only>
+      <div class="wrap-btn">
+        <button
+          type="button"
+          class="button"
+          @click="onClickMore">더보기 {{ pageText }}</button>
       </div>
-    </client-only>
-    <div @click="onClickMore">더보기 {{ pageText }}</div>
+    </div>
   </div>
 </template>
 <script>
@@ -146,8 +151,34 @@ export default {
         justify-content: center;
       }
     }
-    .wrap-box-list {
-      width: 33.33%;
+    .wrap-lists {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 1100px;
+      .wrap-box-list {
+        box-sizing: border-box;
+        padding-right: 25px;
+        padding-top: 20px;
+        width: 33.33%;
+      }
+    }
+    .wrap-btn {
+      width: 350px;
+      height: 40px;
+      margin: 30px auto;
+      .button {
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 2px 1px -1px rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.14);
+        border-radius: 4px;
+        border: none;
+        font-weight: 900;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        background: #FCBA3D;
+        color: #fff;
+      }
     }
   }
 </style>
