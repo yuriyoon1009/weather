@@ -2,7 +2,7 @@
   <div class="wrap-city-detail">
     <pre>{{ info }}</pre>
     <div>
-      <!--components 5개-->
+      <!--box-->
     </div>
   </div>
 </template>
