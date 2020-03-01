@@ -4,15 +4,15 @@
       <div class="wrap-top-search">
         <common-search
           @setTitle="search"
-          :title="cityName"
-        ></common-search>
+          :title="cityName">
+        </common-search>
       </div>
     </div>
     <div class="wrap-lists">
       <client-only>
         <template v-if="cityLists.length">
           <template v-for="({ name, country }, key) in computedCityLists">
-            <div class="wrap-box-list" :key="key">
+            <div class="wrap-box-list" :key="key" @click="search(name)">
               <common-box
                 :img="imgLists[ key ]"
                 :name="name"
