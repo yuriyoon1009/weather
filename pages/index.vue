@@ -144,6 +144,7 @@ export default {
 <style lang="scss">
   .wrap-main {
     .wrap-header {
+      width: 100%;
       background: #FCBA3D;
       padding: 32px 0;
       .wrap-top-search {
@@ -162,6 +163,9 @@ export default {
         padding-right: 25px;
         padding-top: 20px;
         width: 33.33%;
+        @media screen and (max-width: 1200px) {
+          width: 50%;
+        }
       }
     }
     .wrap-btn {
