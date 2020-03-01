@@ -22,7 +22,7 @@ $ yarn generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ## 파일 구조
-
+```
 └───src/
     │
     └───components
@@ -70,5 +70,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
     └───package.json
     |
     └───nuxt.config.js
-
+```
 ### TODO: 추후 eslint 다시 세팅 grid layout 리펙토링
