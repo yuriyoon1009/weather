@@ -1,0 +1,8 @@
+{
+  "env": {
+    "name": "production",
+    "API_HOST": "http://api.openweathermap.org",
+    "APP_KEY": "ae7ff4ccb9083464d97fc66ccad6c6d9",
+    "VERSION": "2.5"
+  }
+}

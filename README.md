@@ -2,6 +2,9 @@
 
 > My peachy Nuxt.js project
 
+## Demo Url
+http://weather-penguin.s3-website.ap-northeast-2.amazonaws.com/
+
 ## Build Setup
 
 ``` bash
