@@ -5,7 +5,7 @@
       class="input"
       placeholder="도시 이름을 검색해보세요 (예: london)"
       maxlength="50"
-      v-model="computedSelectedValue"
+      v-model="computedTypingTitle"
       @keypress.enter="setTitle"/>
     <div class="wrap-search-icon">
       <img
