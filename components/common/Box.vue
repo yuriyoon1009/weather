@@ -11,22 +11,27 @@
         <p class="title">City&nbsp;-&nbsp;</p>
         <p class="value">{{ name }}</p>
       </div>
-      <div class="wrap-city-country">
+      <div class="wrap-city-country" v-if="country">
         <p class="title">Country&nbsp;-&nbsp;</p>
         <p class="value">{{ country }}</p>
+      </div>
+      <div class="more-contents">
+        <slot name="content"></slot>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Default from './img/default.jpg'
+
 export default {
   name: 'CommonBox',
   props: {
     img: {
       type: Object,
       default: () => ({
-        src: '',
-        alt: ''
+        src: Default,
+        alt: 'default'
       })
     },
     name: {
@@ -62,7 +67,7 @@ export default {
     }
     .wrap-text {
       width: 50%;
-      .wrap-city-name, .wrap-city-country {
+      .wrap-city-name, .wrap-city-country, .more-contents {
         display: flex;
         flex-direction: row;
         font-weight: 900;
@@ -73,14 +78,19 @@ export default {
           white-space: nowrap;
         }
       }
+      .wrap-city-country, .more-contents {
+        padding-top: 10px;
+        font-size: 12px;
+        color: #000;
+      }
       .wrap-city-name {
         font-size: 20px;
         color: #56BBD4;
       }
-      .wrap-city-country {
-        padding-top: 20px;
-        font-size: 12px;
-        color: #000;
+      .more-contents {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
       }
     }
   }

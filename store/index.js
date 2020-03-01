@@ -49,8 +49,8 @@ export const actions = {
           weather,
           main,
           wind,
-          rain,
-          clouds
+          clouds,
+          name
         }
       } = await this.$axios.get(`/weather?id=${cityId}&appid=${appKey}`)
 
@@ -58,16 +58,16 @@ export const actions = {
         weather,
         main,
         wind,
-        rain,
-        clouds
+        clouds,
+        name
       })
 
       return errorHandler({
         weather,
         main,
         wind,
-        rain,
-        clouds
+        clouds,
+        name
       })
     } catch (error) {
       return errorHandler(error)
