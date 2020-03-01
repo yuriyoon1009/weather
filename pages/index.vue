@@ -9,8 +9,13 @@
         ></common-search>
       </div>
     </div>
-    <div class="wrap-lists">
-    </div>
+    <client-only>
+      <div class="wrap-lists">
+        <pre>
+          {{ cityLists }}
+        </pre>
+      </div>
+    </client-only>
   </div>
 </template>
 <script>
@@ -20,33 +25,37 @@ import { mapActions, mapMutations, mapGetters } from 'vuex'
 
 export default {
   name: 'PageIndex',
+  middleware: 'list',
   components: {
     CommonSearch
   },
-  // test
-  /* async mounted () {
-    await this.actionSearchCityWeather()
-  }, */
-  mounted () {
-    // dataset
-  },
   computed: {
     ...mapGetters({
-      cityName: 'getCityName'
+      cityName: 'getCityName',
+      cityLists: 'getCityLists'
     })
   },
   methods: {
     ...mapActions({
-      actionSearchCity: 'actionSearchCity'
+      actionSearchCity: 'actionSearchCity',
+      actionListCity: 'actionListCity'
     }),
     ...mapMutations({
-      setCityName: 'setCityName'
+      init: 'init',
+      setCityName: 'setCityName',
     }),
     async search (cityName) {
       this.setCityName(cityName)
       // 검색 api call
       await this.actionSearchCity()
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    next(async vm => {
+      if (from.name === 'detail-id') {
+        vm.$store.commit('init')
+      }
+    })
   }
 }
 </script>

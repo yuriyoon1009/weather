@@ -5,7 +5,7 @@
       class="input"
       placeholder="도시 이름을 검색해보세요 (예: london)"
       maxlength="50"
-      v-model="onTypingTitle"
+      v-model="computedSelectedValue"
       @keypress.enter="setTitle"/>
     <div class="wrap-search-icon">
       <img
@@ -31,14 +31,19 @@ export default {
       default: ''
     }
   },
-  watch: {
-    title (v) {
-      this.onTypingTitle = v
+  computed: {
+    computedTypingTitle: {
+      get () {
+        return this.title || this.onTypingTitle
+      },
+      set (v) {
+        this.onTypingTitle = v
+      }
     }
   },
   methods: {
     setTitle () {
-      this.$emit('setTitle', this.onTypingTitle)
+      this.$emit('setTitle', this.computedTypingTitle)
     }
   }
 }

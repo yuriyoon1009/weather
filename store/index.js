@@ -1,13 +1,17 @@
 
 import { errorHandler } from '../plugins/error.js'
 import { utils } from '../plugins/utils'
+
 const appKey = process.env.APP_KEY
 
+// 상태값
 export const state = () => ({
   cityName: '',
+  cityLists: [],
   detailWeatherInformation: {}
 })
 
+// 비동기
 export const actions = {
   // 검색
   async actionSearchCity ({ state, commit }) {
@@ -71,7 +75,12 @@ export const actions = {
   }
 }
 
+// 동기
 export const mutations = {
+  init: (state) => {
+    state.detailWeatherInformation = {}
+    state.cityName = ''
+  },
   setDetailWeatherInformation: (state, payload) => {
     /**
      * 날씨 정보
@@ -81,10 +90,15 @@ export const mutations = {
   },
   setCityName: (state, payload) => {
     state.cityName = payload
+  },
+  setCityLists: (state, payload) => {
+    state.cityLists = payload
   }
 }
 
+// 객체 전달
 export const getters = {
   getDetailWeatherInformation: state => state.detailWeatherInformation,
-  getCityName: state => state.cityName
+  getCityName: state => state.cityName,
+  getCityLists: state => state.cityLists
 }
